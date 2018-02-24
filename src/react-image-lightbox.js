@@ -1287,7 +1287,8 @@ class ReactImageLightbox extends Component {
       reactModalStyle,
       onAfterOpen,
       imageCrossOrigin,
-      reactModalProps,
+	  reactModalProps,
+	  showDownload,
     } = this.props;
     const {
       zoomLevel,
@@ -1627,7 +1628,24 @@ class ReactImageLightbox extends Component {
                     }
                   />
                 </li>
-              )}
+			  )}
+			  
+			  {showDownload && (
+				<li className={`ril-toolbar__item ${styles.toolbarItem}`}>
+				<button // Lightbox zoom out button
+				  type="button"
+				  title="Download"
+				  aria-label="Download"
+				  className={[
+					'ril-download',
+					styles.toolbarItemChild,
+					styles.builtinButton,
+					styles.downloadButton,
+				  ].join(' ')}
+				  onClick={() => { if (window) { window.open(this.getBestImageForType('mainSrc').src, '_blank')} }}
+				/>
+				</li>
+			  )}
 
               <li className={`ril-toolbar__item ${styles.toolbarItem}`}>
                 <button // Lightbox close button
@@ -1802,6 +1820,7 @@ ReactImageLightbox.propTypes = {
   closeLabel: PropTypes.string,
 
   imageLoadErrorMessage: PropTypes.node,
+  showDownload: PropTypes.bool,
 };
 
 ReactImageLightbox.defaultProps = {
@@ -1813,6 +1832,7 @@ ReactImageLightbox.defaultProps = {
   animationDuration: 300,
   animationOnKeyInput: false,
   clickOutsideToClose: true,
+  showDownload: false,
   closeLabel: 'Close lightbox',
   discourageDownloads: false,
   enableZoom: true,

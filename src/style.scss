@@ -230,6 +230,12 @@ $maxCaptionHeight: 150px;
     no-repeat center;
 }
 
+.downloadButton {
+	background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTYgMTFoNWwtOSAxMC05LTEwaDV2LTExaDh2MTF6bTEgMTFoLTEwdjJoMTB2LTJ6Ii8+PC9zdmc+')
+	no-repeat center;
+	background-color: white;
+}
+
 .outerAnimating {
   animation-name: closeWindow;
 }
